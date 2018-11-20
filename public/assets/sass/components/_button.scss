@@ -82,16 +82,17 @@
 		}
 
 		&.primary {
-			background-color: _palette(accent);
+			background-color: #00568c;
 			box-shadow: none;
-			color: _palette(fg-bold) !important;
-
+			color: #38d39f !important;
+			font-size: 0.9rem;
+			margin-top: 3px;
 			&:hover {
-				background-color: saturate(lighten(_palette(accent), 15), 10);
+				background-color: saturate(lighten(#00568c, 15), 10);
 			}
 
 			&:active {
-				background-color: desaturate(darken(_palette(accent), 3), 10);
+				background-color: desaturate(darken(#00568c, 3), 10);
 			}
 		}
 
