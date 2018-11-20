@@ -1,11 +1,11 @@
 .btn-secondary {
-  background-color: $secondary;
-  border-color: $secondary;
+  background-color: #38d39f;
+  border-color: #38d39f;
   &:active,
   &:focus,
   &:hover {
-    background-color: darken($secondary, 10%) !important;
-    border-color: darken($secondary, 10%) !important;
+    background-color: darken(#38d39f, 10%) !important;
+    border-color: darken(#38d39f, 10%) !important;
   }
 }
 
