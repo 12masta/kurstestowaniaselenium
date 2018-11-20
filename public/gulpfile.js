@@ -8,14 +8,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var pkg = require('./package.json');
 var browserSync = require('browser-sync').create();
 
-// Set the banner content
-var banner = ['/*!\n',
-  ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-  ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license %> (https://github.com/BlackrockDigital/<%= pkg.name %>/blob/master/LICENSE)\n',
-  ' */\n',
-  '\n'
-].join('');
 
 // Copy third party libraries from /node_modules into /vendor
 gulp.task('vendor', function() {
@@ -45,7 +37,7 @@ gulp.task('vendor', function() {
 
 // Compile SCSS
 gulp.task('css:compile', function() {
-  return gulp.src('./scss/**/*.scss')
+  return gulp.src('./assets/sass/**/*.scss')
     .pipe(sass.sync({
       outputStyle: 'expanded'
     }).on('error', sass.logError))
@@ -53,23 +45,20 @@ gulp.task('css:compile', function() {
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(header(banner, {
-      pkg: pkg
-    }))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./assets/css'))
 });
 
 // Minify CSS
 gulp.task('css:minify', ['css:compile'], function() {
   return gulp.src([
-      './css/*.css',
-      '!./css/*.min.css'
+      './assets/css/*.css',
+      '!./assets/css/*.min.css'
     ])
     .pipe(cleanCSS())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./assets/css'))
     .pipe(browserSync.stream());
 });
 
@@ -79,17 +68,14 @@ gulp.task('css', ['css:compile', 'css:minify']);
 // Minify JavaScript
 gulp.task('js:minify', function() {
   return gulp.src([
-      './js/*.js',
-      '!./js/*.min.js'
+      './assets/js/*.js',
+      '!./assets/js/*.min.js'
     ])
     .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(header(banner, {
-      pkg: pkg
-    }))
-    .pipe(gulp.dest('./js'))
+    .pipe(gulp.dest('./assets/js'))
     .pipe(browserSync.stream());
 });
 
