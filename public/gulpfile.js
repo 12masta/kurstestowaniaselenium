@@ -18,6 +18,12 @@ gulp.task('vendor', function() {
     ])
     .pipe(gulp.dest('./vendor/bootstrap'))
 
+  // Bootstrap notify
+  gulp.src([
+    './node_modules/bootstrap-notify/bootstrap-notify.min.js'
+  ])
+  .pipe(gulp.dest('./vendor/bootstrap-notify'))
+
   // Font Awesome
   gulp.src([
       './node_modules/@fortawesome/**/*',

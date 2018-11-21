@@ -1,11 +1,11 @@
 $('#SendButton').on('click', function(e) {
     var emailFieldValue = $('#emailInput').val();
     if (validateEmail(emailFieldValue)) {
-      console.log("Valid");
+      console.log("Valid email");
       saveToFirebase(emailFieldValue)
     } else {
-      console.log("Invalid");
-      $('#SendButton').text('Spróbuj ponownie');
+      console.log("Invalid email");
+      $('#SendButton').val('Spróbuj ponownie');
       $.notify({
         icon: 'fa fa-exclamation',
         message: 'Niepoprawny format adresu email.'
@@ -31,12 +31,12 @@ $('#SendButton').on('click', function(e) {
   }
   
   function saveToFirebase(emailFieldValue) {
-    $('#SendButton').text('Nie wysłano');
-  console.error("Error adding document: ", error);
+    $('#SendButton').val('Nie wysłano');
+  console.error("Error adding document: ");
   $.notify({
     icon: 'fa fa-exclamation',
     message: 'Problem z wysłaniem, odśwież proszę stronę. Jeżeli problem się' +
-      ' powtórzy skontaktuj się z administratorem: stanek.marcinp@gmail.com'
+      ' powtórzy skontaktuj się z administratorem: kontakt@marcinstanek.pl'
   }, {
     delay: 6000,
     type: 'danger',
@@ -53,12 +53,12 @@ $('#SendButton').on('click', function(e) {
   }
 
 
-//   $('#SendButton').text('Nie wysłano');
+//   $('#SendButton').val('Nie wysłano');
 //   console.error("Error adding document: ", error);
 //   $.notify({
 //     icon: 'fa fa-exclamation',
 //     message: 'Problem z wysłaniem, odśwież proszę stronę. Jeżeli problem się' +
-//       ' powtórzy skontaktuj się z administratorem: stanek.marcinp@gmail.com'
+//       ' powtórzy skontaktuj się z administratorem: kontakt@marcinstanek.pl'
 //   }, {
 //     delay: 6000,
 //     type: 'danger',
@@ -73,7 +73,7 @@ $('#SendButton').on('click', function(e) {
 //       '</div>'
 //   });
 
-// $('#SendButton').text('Wyślij ponownie');
+// $('#SendButton').val('Wyślij ponownie');
 // console.log("Document written with ID: ", docRef.id);
 // $.notify({
 //   icon: 'fa fa-check',
