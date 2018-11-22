@@ -94,4 +94,5 @@ $('#SendButton').on('click', function(e) {
             });
         }
     });
+    window.location.href = "dziekuje.html";
   }
