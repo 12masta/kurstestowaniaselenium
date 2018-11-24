@@ -70,6 +70,7 @@ $('#SendButton').on('click', function(e) {
                 '<a href="{3}" target="{4}" data-notify="url"></a>' +
                 '</div>'
             });
+            window.location.href = "dziekuje.html";
         },
         error: function (request, status, error) {
             console.info(request, status, error);
@@ -94,5 +95,5 @@ $('#SendButton').on('click', function(e) {
             });
         }
     });
-    window.location.href = "dziekuje.html";
+
   }
