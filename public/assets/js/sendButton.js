@@ -35,7 +35,7 @@ function validateEmail(email) {
 }
 
 function createOrUpdateContact(emailFieldValue) {
-  var apiUrl = "https://intense-tor-29387.herokuapp.com/createorupdatecontact"; // get this from settings
+  var apiUrl = "https://pacific-lowlands-81394.herokuapp.com/createorupdatecontact"; // get this from settings
 
   var contact = {
     contact: {
